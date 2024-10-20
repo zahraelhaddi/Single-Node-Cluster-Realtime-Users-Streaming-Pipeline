@@ -1,0 +1,12 @@
+# Python-related files
+*.pyc
+__pycache__/
+
+
+
+# JAR files (
+*.jar/
+
+
+# IDE-specific files (VSCode)
+.vscode/
