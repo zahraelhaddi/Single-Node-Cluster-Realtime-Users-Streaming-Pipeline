@@ -1,12 +1,7 @@
 # Single-Node-Cluster-Realtime-Users-Streaming-Pipeline
 Single Node Cluster for the first part of the comparative analysis of Single node and MultiNode Kafka and spark Clusters
-Got it! Here’s a revised README that provides a more comprehensive overview of the project, including explanations of Airflow, the data being processed, the architecture used, and the project’s goals.
+The objectif of this part1 is to analyze the performance of a single node cluster (both for kafka and Spark) in streaming and processing data coming from an API to a Cassandra.
 
-```markdown
-# Document Intake & Understanding Component
-
-## Overview
-The Document Intake & Understanding Component is designed to automate the collection and organization of essential documents from fund-seekers. The goal is to streamline the processing of these documents, enabling efficient data extraction and analysis. The system uses a microservices architecture to ensure scalability and maintainability.
 
 ## Architecture
 This project employs a microservices architecture, utilizing the following components:
@@ -20,7 +15,7 @@ This project employs a microservices architecture, utilizing the following compo
 1. **Document Upload**: Fund-seekers submit documents, which are collected by the system.
 2. **Message Queue**: Kafka handles the ingestion of these documents, ensuring reliable and scalable data processing.
 3. **Workflow Management**: Airflow orchestrates the workflows to extract, transform, and load (ETL) data from the uploaded documents into PostgreSQL.
-4. **Data Storage**: Processed data is stored in PostgreSQL, making it readily accessible for further analysis or reporting.
+4. **Data Storage**: Processed data is stored in Cassandra, making it readily accessible for further analysis or reporting.
 
 ## Getting Started
 
@@ -42,21 +37,18 @@ This project employs a microservices architecture, utilizing the following compo
    ```
 
 3. **Access the Services**:
-   - **Airflow Web UI**: Navigate to [http://localhost:8080](http://localhost:8080) to monitor and manage workflows.
-   - **PostgreSQL**: Access it on `localhost:5432` (default credentials: user: `airflow`, password: `airflow`).
-   - **Grafana**: View at [http://localhost:3000](http://localhost:3000) to monitor system metrics.
+   - **Airflow Web UI**: Serves as the messaging backbone, facilitating real-time data streaming between services.
+   - **Kafka**: Enabling asynchronous pub-sub system (producers: API, Consumers: Spark).
+   - **Spark**: Processing API data from kafka topics.
+   - **Cassandra**: to Store Processed API data.
+   - **Prometheus**: to retreive & monitor kafka cluster metrics. 
+   - **Grafana**: View at [http://localhost:3000](http://localhost:3000) to monitor system metrics using prometheus as a data source.
+   - **PostgreSQL**: the metadata database for Airflow. It stores essential information related to workflows, such as task instances, execution dates, logs.
 
 ### Initial Configuration
 
-- **Database Setup**:
-   - Open the Airflow web UI.
-   - Under the **Admin** tab, configure necessary connections to PostgreSQL if needed.
-
 - **Run Workflows**:
    - Create and execute initial workflows within Airflow to start processing documents. 
-
-## Project Goal
-The primary objective of this project is to develop a robust pipeline that efficiently processes documents submitted by fund-seekers, enabling the extraction of valuable insights and maintaining data integrity. By automating the workflow with Apache Airflow and using Kafka for real-time data handling, the project aims to reduce manual intervention and improve processing speed.
 
 ## Monitoring
 Prometheus and Grafana are integrated for system monitoring. You can visualize system metrics and health through Grafana to ensure that all components are functioning optimally.
@@ -64,15 +56,5 @@ Prometheus and Grafana are integrated for system monitoring. You can visualize s
 ## Contributing
 To contribute to this project, please fork the repository, create a new branch, and submit a pull request.
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-Special thanks to the communities behind the technologies used in this project.
 ```
-
-### Instructions for Use:
-1. Replace `yourusername/repository-name` with your actual GitHub username and the repository name.
-2. Adjust any sections based on your specific project details or additional components you want to highlight.
-
-Feel free to ask for any further modifications or additional details!
