@@ -11,12 +11,6 @@ This project employs a microservices architecture, utilizing the following compo
 - **PostgreSQL**: Acts as the primary data storage solution, holding processed information for easy retrieval and analysis.
 - **Prometheus and Grafana**: Used for monitoring the health and performance of the system, providing insights into metrics and alerts.
 
-### Data Flow
-1. **Document Upload**: Fund-seekers submit documents, which are collected by the system.
-2. **Message Queue**: Kafka handles the ingestion of these documents, ensuring reliable and scalable data processing.
-3. **Workflow Management**: Airflow orchestrates the workflows to extract, transform, and load (ETL) data from the uploaded documents into PostgreSQL.
-4. **Data Storage**: Processed data is stored in Cassandra, making it readily accessible for further analysis or reporting.
-
 ## Getting Started
 
 ### Prerequisites
