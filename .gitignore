@@ -6,8 +6,6 @@ __pycache__/
 # Virtual environment
 venv/
 
-# JAR files (
-*.jars/
 
 
 # IDE-specific files (VSCode)
