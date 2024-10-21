@@ -20,11 +20,11 @@ This project employs a microservices architecture, utilizing the following compo
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/repository-name.git
+   git clone https://github.com/zahraelhaddi/Single-Node-Cluster-Realtime-Users-Streaming-Pipeline.git
    cd repository-name
    ```
 
-2. **Start the Services**:
+2. **Start docker compose services (containers)**:
    Use the following command to build and run the Docker containers defined in the `docker-compose.yml` file:
    ```bash
    docker-compose up --build
@@ -50,5 +50,3 @@ Prometheus and Grafana are integrated for system monitoring. You can visualize s
 ## Contributing
 To contribute to this project, please fork the repository, create a new branch, and submit a pull request.
 
-
-```
